@@ -7,6 +7,10 @@ const Events = () => {
 const [data] = useState(eventsJSON);
 const {_embedded: {events}} = data;
 
+const handleEventItemClick =(id) => {
+    console.log('evento clickeado', id)
+}
+
     return (
         <div>
             <h2>Eventos</h2>
@@ -16,6 +20,8 @@ const {_embedded: {events}} = data;
     name={eventItem.name}
     info={eventItem.info}
     image={eventItem.images[0].url}
+    onEventClick={handleEventItemClick}
+    id={eventItem.id}
     />
 ))};
         </div>
