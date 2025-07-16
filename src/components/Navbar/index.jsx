@@ -1,7 +1,7 @@
 const Navbar = () => {
     return(
         <>
-        <p>Eventos</p>
+        <p>Mi Boletera</p>
         <input placeholder="Buscar Evento"></input>
         </>
 
