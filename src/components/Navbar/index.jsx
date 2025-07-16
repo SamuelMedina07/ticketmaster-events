@@ -1,9 +1,19 @@
+import {useState} from "react"
+
 const Navbar = () => {
+    const [search,setSearch] = useState('');
+    const handleInputChange =(evt) =>{
+        setSearch(evt.target.value)
+    };
+
     return(
-        <>
+        <div>
         <p>Mi Boletera</p>
-        <input placeholder="Buscar Evento"></input>
-        </>
+        <input placeholder="Buscar Evento" 
+        onChange={handleInputChange} 
+        value={search}
+        />
+        </div>
 
     );
 
