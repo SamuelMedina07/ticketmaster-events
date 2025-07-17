@@ -1,14 +1,19 @@
 import { useState } from "react";
 
 const SignupForm = () =>{
-    const {name,setName} = useState('');
-    const {age,setAge} = useState('');
-    const {address,setAddress} = useState('');
-    const {zipcode,setZipcode} = useState('');
-    const {phone,setPhone} = useState('');
+    const [name,setName] = useState('');
+    const [age,setAge] = useState('');
+    const [address,setAddress] = useState('');
+    const [zipcode,setZipcode] = useState('');
+    const [phone,setPhone] = useState('');
 
     const handleClearClick = () => {
         console.log('clear');
+        setName('');
+        setAge('');
+        setAddress('');
+        setZipcode('');
+        setPhone('');
     };
 
     const handleSubmitForm = (evt) => {
@@ -19,9 +24,9 @@ const SignupForm = () =>{
 
     return(
         <form>
-            <label  >
+            <label>
                 Name
-                <input value={name} onChange={(evt) => setName(evt.target.value)} />
+                <input value={name} onChange={(evt) => setName(evt.target.value)}/>
             </label>
             <label>
                 Age
@@ -41,7 +46,7 @@ const SignupForm = () =>{
             </label>
             <div>
                 <button type="button" onClick={handleClearClick}>Clear</button>
-                <button type="button" onClick={handleSubmitForm}>Submit</button>
+                <button type="submit" onClick={handleSubmitForm}>Submit</button>
             </div>
         </form>
 
