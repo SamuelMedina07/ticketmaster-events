@@ -1,14 +1,19 @@
 import { useState } from "react";
 
 const SignupForm = () =>{
-    const {name,setName} = useState('');
-    const {age,setAge} = useState('');
-    const {address,setAddress} = useState('');
-    const {zipcode,setZipcode} = useState('');
-    const {phone,setPhone} = useState('');
+    const [name,setName] = useState('');
+    const [age,setAge] = useState('');
+    const [address,setAddress] = useState('');
+    const [zipcode,setZipcode] = useState('');
+    const [phone,setPhone] = useState('');
 
     const handleClearClick = () => {
         console.log('clear');
+        setName('');
+        setAge('');
+        setAddress('');
+        setZipcode('');
+        setPhone('');
     };
 
     const handleSubmitForm = (evt) => {
@@ -18,30 +23,30 @@ const SignupForm = () =>{
     };
 
     return(
-        <form>
-            <label  >
+        <form  onSubmit={handleSubmitForm}>
+            <label>
                 Name
-                <input value={name} onChange={(evt) => setName(evt.target.value)} />
+                <input value={name} onChange={(evt) => setName(evt.target.value)} required/>
             </label>
             <label>
                 Age
-                <input value={age} onChange={(evt) => setAge(evt.target.value)} />
+                <input value={age} onChange={(evt) => setAge(evt.target.value)} required/>
             </label>
             <label>
                 Address
-                <input value={address} onChange={(evt) => setAddress(evt.target.value)} />
+                <input value={address} onChange={(evt) => setAddress(evt.target.value)} required />
             </label>
             <label>
                 Zipcode
-                <input value={zipcode} onChange={(evt) => setZipcode(evt.target.value)} />
+                <input value={zipcode} onChange={(evt) => setZipcode(evt.target.value)} required/>
             </label>
             <label>
                 Phone
-                <input value={phone} onChange={(evt) => setPhone(evt.target.value)} />
+                <input value={phone} onChange={(evt) => setPhone(evt.target.value)} required />
             </label>
             <div>
                 <button type="button" onClick={handleClearClick}>Clear</button>
-                <button type="button" onClick={handleSubmitForm}>Submit</button>
+                <button type="submit">Submit</button>
             </div>
         </form>
 
