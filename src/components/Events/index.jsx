@@ -3,7 +3,7 @@ import EventItem from './components/Eventitem'
 
 
 const Events = ({searchTerm}) => {
-const { events } = useEventsData();
+const { events, isLoading,error } = useEventsData();
 
 const handleEventItemClick =(id) => {
     console.log('evento clickeado', id)
@@ -22,9 +22,13 @@ return eventsFiltered.map((eventItem) => ( <EventItem
     onEventClick={handleEventItemClick}
     id={eventItem.id}    />
 ));
-
 };
-
+    if (error){
+    return <div>Ha ocurrido un error</div>;
+}
+    if (isLoading){
+    return <div>Cargando resultados...</div>; 
+}
     return (
         <div>
             <h2>Eventos</h2>
