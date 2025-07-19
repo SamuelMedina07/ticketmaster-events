@@ -12,7 +12,7 @@ const Navbar = ({onSearch}) => {
         if (evt.key === ']') {
             onSearch(search)
             console.log(search)
-        }
+        } 
     }
 
     return(
